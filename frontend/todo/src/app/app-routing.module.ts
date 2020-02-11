@@ -9,7 +9,7 @@ import { ErrorComponent } from './error/error.component';
 const routes: Routes = [
   {path: '', component:LoginComponent}, // when path not given it consider this component is the home page or default page.
   {path:'login', component:LoginComponent}, // route path and component name for LoginComponent 
-  {path: 'welcome', component:WelcomeComponent}, // route path and component name for WelcomeComponent 
+  {path: 'welcome/:name', component:WelcomeComponent}, // route path and component name for WelcomeComponent 
   {path:'**', component: ErrorComponent} //if any undefined url access, this component invoked
 ];
 
