@@ -8,18 +8,20 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { ErrorComponent } from './error/error.component';
+import { ListTodoComponent } from './list-todo/list-todo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     LoginComponent,
-    ErrorComponent
+    ErrorComponent,
+    ListTodoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule //ngModel importing
+    FormsModule // ngModel importing
   ],
   providers: [],
   bootstrap: [AppComponent]

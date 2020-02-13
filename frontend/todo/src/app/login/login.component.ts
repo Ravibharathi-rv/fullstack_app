@@ -10,13 +10,13 @@ import { Router } from '@angular/router'; // imported for Router.
 export class LoginComponent implements OnInit {
   // Member variables. this variables tie with login.component.html values.
 
-  username: string 
-  password : string
-  errorMsg : string ='Invalid username/password'
-  invalidCred : boolean= false;
+  username: string;
+  password: string;
+  errorMsg: string = ' Invalid username/password';
+  invalidCred: boolean= false;
 
-  //dependency injection. route is Router type variable it injected to the login component for Routing, 
-  //constructor make this member variable also.
+  // dependency injection. route is Router type variable it injected to the login component for Routing, 
+  // constructor make this member variable also.
   // private blocks the route in outside scope
   constructor(private route:Router) { }
 
@@ -29,8 +29,9 @@ export class LoginComponent implements OnInit {
    {
       this.invalidCred = false;
 
-      //route to another page using navigate
-      this.route.navigate(['welcome']);  //  navigate method only accepts array of values. array contains redirecting component names.
+      // route to another page using navigate
+      this.route.navigate(['welcome',this.username]);  //  navigate method only accepts array of values. array contains redirecting component names.
+      // the above username forward to welcome page as a router parameter value.
 
    }else{
      this.invalidCred = true;

@@ -1,0 +1,23 @@
+<table border="1">
+    <caption>My Todo's</caption>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--we can retrive the todo object vale using interpolation like below for single data
+        <tr>
+            <td>{{todo.id}} </td>
+            <td>{{todo.description}}</td>
+        </tr>
+    -->
+        <!--if you want iterate more values from object we can got to ngFor loop like for loop in java-->
+        <!-- *ngFor is equal to for(int num : arr) here " and ": equal to of "-->
+        <tr *ngFor=" let todo of todos">
+            <td>{{todo.id}} </td>
+            <td>{{todo.description}}</td>
+        </tr>
+    </tbody>
+</table>

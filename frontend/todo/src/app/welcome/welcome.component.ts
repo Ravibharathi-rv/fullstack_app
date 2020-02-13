@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router'; // injected for Router paramet
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-  name : string;
+  name1: string;
   // route is a ActivateRoute type means that current router type of the component.
   constructor(private route : ActivatedRoute) { }
   
@@ -19,7 +19,7 @@ export class WelcomeComponent implements OnInit {
 
     //  this.route.snapshot.params['name'];   // access the welcome component with. 
     // we can get the value from the above parameter through member varible only like below.
-    this.name = this.route.snapshot.params['name']; // it bind to the html page using interpolation.
+    this.name1 = this.route.snapshot.params['name']; // it bind to the html page using interpolation.
 
   }
 
