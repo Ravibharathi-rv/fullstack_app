@@ -2,8 +2,10 @@
     <caption>My Todo's</caption>
     <thead>
         <tr>
-            <th>ID</th>
+            
             <th>Description</th>
+            <th>is Completed?</th>
+            <th>Target Date</th>
         </tr>
     </thead>
     <tbody>
@@ -16,8 +18,9 @@
         <!--if you want iterate more values from object we can got to ngFor loop like for loop in java-->
         <!-- *ngFor is equal to for(int num : arr) here " and ": equal to of "-->
         <tr *ngFor=" let todo of todos">
-            <td>{{todo.id}} </td>
-            <td>{{todo.description}}</td>
+            <td>{{todo.description}} </td>
+            <td>{{todo.done}}</td>
+            <td>{{todo.targetDate | date | uppercase}}</td>  <!-- | operator is called as pipe optr. used to convert data one format into another format-->
         </tr>
     </tbody>
 </table>
