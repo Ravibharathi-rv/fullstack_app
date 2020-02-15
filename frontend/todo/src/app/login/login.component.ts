@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { invalid } from '@angular/compiler/src/render3/view/util';
 import { Router } from '@angular/router'; // imported for Router.
+import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -13,30 +14,30 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
   errorMsg: string = ' Invalid username/password';
-  invalidCred: boolean= false;
+  invalidCred: boolean = false;
 
   // dependency injection. route is Router type variable it injected to the login component for Routing, 
   // constructor make this member variable also.
   // private blocks the route in outside scope
-  constructor(private route:Router) { }
+  constructor(private route: Router, private hardcodedAuthenticationService: HardcodedAuthenticationService) { }
 
   ngOnInit(): void {
   }
 
-  handleLogin() : void
-  { // this function invoked when login button clicked
-   if(this.username === 'Ravi' && this.password ==='test')
-   {
+  handleLogin(): void { // this function invoked when login button clicked
+    // if(this.username === 'Ravi' && this.password ==='test')
+    if (this.hardcodedAuthenticationService.authenticate(this.username, this.password))  // a service used to authenticate the username and password. it return the boolean values
+    {
       this.invalidCred = false;
 
       // route to another page using navigate
-      this.route.navigate(['welcome',this.username]);  //  navigate method only accepts array of values. array contains redirecting component names.
+      this.route.navigate(['welcome', this.username]);  //  navigate method only accepts array of values. array contains redirecting component names.
       // the above username forward to welcome page as a router parameter value.
 
-   }else{
-     this.invalidCred = true;
-   }
-   
+    } else {
+      this.invalidCred = true;
+    }
+
   }
 
 }
