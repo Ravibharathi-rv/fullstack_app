@@ -24,6 +24,11 @@ export class HardcodedAuthenticationService {
     return !(user === null);
     
   }
+P
+  loggoutUser()
+  {
+    sessionStorage.removeItem('userauthenticated'); // it removes the session storage of the user
+  }
 
 }
 
