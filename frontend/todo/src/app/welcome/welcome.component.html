@@ -11,3 +11,20 @@
     </div>
 
 </div>
+
+<div class="container" class="alert alert-danger">
+    <h3 > {{HelloWorldFromService}}</h3>
+</div>
+
+
+<div class="container">
+
+    Click here to get All welcome message.
+    <button (click)="getWelcomeMessage()" class="btn btn-success"> Click to Get Welcome</button>
+</div>
+
+<div class="container" *ngIf="HelloWorldFromService">
+
+    <h3>Hello World Response using HelloWorld Bean object.</h3>
+    <h4>{{HelloWorldFromService}}</h4>
+</div>

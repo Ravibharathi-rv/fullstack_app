@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   invalidCred: boolean = false;
 
   // dependency injection. route is Router type variable it injected to the login component for Routing, 
-  // constructor make this member variable also.
+  // constructor make this as member variable also.
   // private blocks the route in outside scope
   constructor(private route: Router, private hardcodedAuthenticationService: HardcodedAuthenticationService) { }
 

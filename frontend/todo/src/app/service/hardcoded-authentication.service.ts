@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class HardcodedAuthenticationService {
 
   constructor() { }
-  // the service used gor authenticate the username and password and return the boolean value
+  // the service used for authenticate the username and password and return the boolean value
   authenticate(username: string,password: string)
   {
     //console.log(this.isUserLoggedIn());
