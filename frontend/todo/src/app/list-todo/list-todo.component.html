@@ -1,6 +1,12 @@
-<h1>My Todo's</h1>
 <div class="container">
+    <h1 >My Todo's</h1>
+
+    <div>
+        <!-- *ngIf is a angular directive. it display the error msg only if the value is true. -->
+        <div *ngIf="deleteMessage" class="alert alert-success">{{deleteMessage}}</div>
+    </div>
     <table class="table">
+
         <!--table is a inbuilt class name for standard style-->
         <thead>
             <tr>
@@ -8,6 +14,8 @@
                 <th>Description</th>
                 <th>is Completed?</th>
                 <th>Target Date</th>
+                <th>Delete</th>
+                <th>Update</th>
             </tr>
         </thead>
         <tbody>
@@ -22,8 +30,9 @@
             <tr *ngFor=" let todo of todos">
                 <td>{{todo.description}} </td>
                 <td>{{todo.done}}</td>
-                <td>{{todo.targetDate | date | uppercase}}</td>
-                <!-- | operator is called as pipe optr. used to convert data one format into another format-->
+                <td>{{todo.targetDate | date | uppercase}}</td>  <!-- | operator is called as pipe optr. used to convert data one format into another format-->
+                <td><button (click)="deleteTodo(todo.id)" class="btn btn-danger">Delete</button></td>
+                <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>               
             </tr>
         </tbody>
     </table>

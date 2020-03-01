@@ -1,5 +1,7 @@
 <h1>Welcome</h1>
 
+
+
 <div class="container">
 
     <div>
@@ -11,20 +13,19 @@
     </div>
 
 </div>
+<div class="container" *ngIf="errorresponse">
 
-<div class="container" class="alert alert-danger">
-    <h3 > {{HelloWorldFromService}}</h3>
+    <h4 class="alert alert-danger">{{errorresponse}}</h4>
 </div>
-
-
-<div class="container">
+<div class="container ">
 
     Click here to get All welcome message.
-    <button (click)="getWelcomeMessage()" class="btn btn-success"> Click to Get Welcome</button>
+    <!--instead of calling getWelcomeMessage() we can call "WelcomeDataServiceWithPathVariable()"-->
+    <button (click)="WelcomeDataServiceWithPathVariable()" class="btn btn-success"> Click to Get Welcome</button>
 </div>
 
-<div class="container" *ngIf="HelloWorldFromService">
+<div class="container" *ngIf="successresponse">
 
     <h3>Hello World Response using HelloWorld Bean object.</h3>
-    <h4>{{HelloWorldFromService}}</h4>
+    <h4 class="alert alert-info">{{successresponse}}</h4>
 </div>
