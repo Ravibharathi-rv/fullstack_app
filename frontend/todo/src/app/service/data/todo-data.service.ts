@@ -26,8 +26,8 @@ export class TodoDataService {
     return this.http.delete(`http://localhost:4201/users/${username}/todos/${id}`); // it returns deleted Response entity type object from service generic type like java    
   }
 
-  updateTodoService(id){
-
+  updateTodoService(username: string,id: number){
+    return this.http.get<Todo>(`http://localhost:4201/users/${username}/todos/${id}`);
   }
 
 }
