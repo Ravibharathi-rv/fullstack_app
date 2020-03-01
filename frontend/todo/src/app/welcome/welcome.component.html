@@ -1,1 +1,31 @@
-<p>welcome works!</p>
+<h1>Welcome</h1>
+
+
+
+<div class="container">
+
+    <div>
+        <p>Welcome {{name1}} to the Welcome page</p>
+    </div>
+    <div>
+        <!-- router link is similar to href="#" it used to navigate to the other page using given url path-->
+        <a [routerLink]="['/list-todo']">click her to go Todo's page</a>
+    </div>
+
+</div>
+<div class="container" *ngIf="errorresponse">
+
+    <h4 class="alert alert-danger">{{errorresponse}}</h4>
+</div>
+<div class="container ">
+
+    Click here to get All welcome message.
+    <!--instead of calling getWelcomeMessage() we can call "WelcomeDataServiceWithPathVariable()"-->
+    <button (click)="WelcomeDataServiceWithPathVariable()" class="btn btn-success"> Click to Get Welcome</button>
+</div>
+
+<div class="container" *ngIf="successresponse">
+
+    <h3>Hello World Response using HelloWorld Bean object.</h3>
+    <h4 class="alert alert-info">{{successresponse}}</h4>
+</div>
