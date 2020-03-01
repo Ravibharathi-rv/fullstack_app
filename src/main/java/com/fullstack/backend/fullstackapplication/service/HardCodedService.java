@@ -49,4 +49,21 @@ public class HardCodedService {
 		}
 		return null;
 	}
+	
+	//update / create
+	public Todo update(Todo todo) {
+		
+		if(todo.getId() == -1 || todo.getId() == 0)
+		{
+			todo.setId(++count);
+			todos.add(todo);
+		}
+		else
+		{
+			deleteById(todo.getId());
+			todos.add(todo);
+		}
+		
+		return todo;
+	}
 }
