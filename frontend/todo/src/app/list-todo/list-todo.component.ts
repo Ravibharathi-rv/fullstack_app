@@ -68,9 +68,14 @@ export class ListTodoComponent implements OnInit {
 
   }
 
-  updateTodo(id){
+  updateTodo(id: number){
     console.log(`todo ivoked ${id}`);
     this.router.navigate(['update',id]);
+  }
+
+  addTodo(){
+    
+    this.router.navigate(['update',-1]);
   }
 
   refreshTodo(){
