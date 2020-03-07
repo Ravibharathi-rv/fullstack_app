@@ -56,11 +56,11 @@ public class TodoController {
 				@PathVariable long id,@RequestBody Todo todo) {
 			Todo updateTodo = todoHService.update(todo);
 
-			return new ResponseEntity<Todo>(todo,HttpStatus.OK);
+			return new ResponseEntity<Todo>(updateTodo,HttpStatus.OK);
 		}
 		
 		// create (POST) /users/{user_name}/todo/{id}
-				@PostMapping("/users/{username}/todos/{id}")
+				@PostMapping("/users/{username}/todos")
 				public ResponseEntity<Void> create(@PathVariable String username, 
 						@RequestBody Todo todo) {
 					Todo createdTodo = todoHService.update(todo);
