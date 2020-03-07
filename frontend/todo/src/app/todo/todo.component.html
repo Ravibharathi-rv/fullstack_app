@@ -1,5 +1,6 @@
 <div class="container">
     <h1>Todo</h1>
+    <div class="alert alert-warning" *ngIf="ngForm.invalid">Enter Valid data</div>
     <form (ngSubmit)="!ngForm.invalid && updateDataTodo()" #ngForm="ngForm">
         <fieldset class="form-group">
             <label>Description </label>
