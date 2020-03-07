@@ -1,11 +1,15 @@
 <div class="container">
-    
-        <h1>My Todo's</h1>
-            
-    <div>
+    <div style="padding: 3px;"></div>
+
+    <h1 class="h1text">My Todo's</h1>
+    <div class="top-head">
         <!-- *ngIf is a angular directive. it display the error msg only if the value is true. -->
         <div *ngIf="deleteMessage" class="alert alert-success">{{deleteMessage}}</div>
+       <span >
+            <button (click)="addTodo()" class="btn btn-info bewbtn">New Todo</button>
+        </span>
     </div>
+
     <table class="table">
 
         <!--table is a inbuilt class name for standard style-->
@@ -38,7 +42,5 @@
             </tr>
         </tbody>
     </table>
-    <div class="row">
-        <button (click)="addTodo()" class="btn btn-info bewbtn">New Todo</button>
-    </div>
+
 </div>
