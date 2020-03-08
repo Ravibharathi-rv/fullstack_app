@@ -29,6 +29,7 @@ public class TodoController {
 	// GetTodos list
 	@GetMapping("/users/{username}/todos")
 	public List<Todo> getAllTodos(@PathVariable String username) {
+		
 		return todoHService.findAll(username);
 	}
 
