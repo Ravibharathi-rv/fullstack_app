@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Todo } from 'src/app/list-todo/list-todo.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders  } from '@angular/common/http';
+
 
 
 
@@ -13,14 +14,16 @@ export class TodoDataService {
   constructor(private http: HttpClient) { }
 
 
- retriveAllTodosData(username){
+ retriveAllTodosData(username: string){
+
     // without generic type : return this.http.get("http://localhost:8080/hbean/pathvari/Suriya"); // api url
 
     return this.http.get<Todo[]>(`http://localhost:4201/users/${username}/todos`); // it returns HelloWorld bean type object from service generic type like java
     //console.log("Welcome data service invoked");
   }
 
-  deleteTodoService(username,id){
+
+  deleteTodoService(username: string,id: number){
     // without generic type : return this.http.get("http://localhost:8080/hbean/pathvari/Suriya"); // api url
 
     return this.http.delete(`http://localhost:4201/users/${username}/todos/${id}`); // it returns deleted Response entity type object from service generic type like java    

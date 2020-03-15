@@ -17,8 +17,8 @@ export class WelcomeDataService {
     //console.log("Welcome data service invoked");
   }
 
-  executeWelcomeDataServiceWithPathVariable(name) {
-
+  executeWelcomeDataServiceWithPathVariable(name: string) {
+    console.log("Welcome data service inside");
     let authenticationHeaders = this.basicAuthenticationHeaders(); // it return the hardecoded encoded authentication values
 
     let headers = new HttpHeaders({
@@ -28,13 +28,13 @@ export class WelcomeDataService {
 
     //here we use tic operator. if tic(`) operator used, you should use ${} for declare the parameter.
     //it considers the parameter as member variable.this variable act like dynamic value
-    return this.http.get<HelloWorldBean>(`http://localhost:4201/hbean/pathvari/${name}`, { headers }); // adding second parameters for authorization
+    return this.http.get<HelloWorldBean>(`http://localhost:4201/hbean/pathvari/${name}`,{headers}); // adding second parameters for authorization
     // it returns HelloWorld bean type object from service generic type like java
     //console.log("Welcome data service invoked");
   }
 
   basicAuthenticationHeaders() { // it returns the hardecoded user cred values for authorization
-
+    console.log('inside the authentication headers constructing');
     let username = 'Ravi';
     let password = 'test';
 
