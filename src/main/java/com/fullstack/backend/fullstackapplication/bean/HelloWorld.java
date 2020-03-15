@@ -1,4 +1,4 @@
-package com.fullstack.backend.fullstackapplication.hellowowrld;
+package com.fullstack.backend.fullstackapplication.bean;
 
 public class HelloWorld {
 	
