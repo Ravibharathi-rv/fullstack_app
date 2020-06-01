@@ -1,13 +1,23 @@
-
 <div class="container">
     <h1>Todo</h1>
-    <fieldset class="form-group">
-        <label>Description </label>
-        <input type="text" class="form-control" name="description" required="required">
-    </fieldset>
-    <fieldset class="form-group">
-        <label>Date </label>
-        <input type="date" class="form-control" name="targetDate" required="required">
-    </fieldset>
-    <button class="btn btn-success" (click)="updateTodo()">Update</button>
+    <div class="alert alert-warning" *ngIf="ngForm.dirty && description.invalid">Enter Description at least 5 chars data</div>
+    <div class="alert alert-warning" *ngIf="ngForm.dirty && targetDate.invalid">Enter Valid Date Date</div>
+    <form (ngSubmit)="!ngForm.invalid && updateDataTodo()" #ngForm="ngForm">
+        <fieldset class="form-group">
+            <label>Description </label>
+            <input type="text" #description="ngModel" [(ngModel)]="todo.description" class="form-control"
+                name="description" required="required" minlength="5">
+        </fieldset>
+        <fieldset class="form-group">
+            <label>Date </label>
+            <input type="date" #targetDate="ngModel" [ngModel]="todo.targetDate | date:'yyyy-MM-dd'"
+                (ngModel)="todo.targetDate = $event" class="form-control" name="targetDate" required="required">
+        </fieldset>
+        <button class="btn btn-success" type="submit">Save</button>
+    </form>
 </div>
+<!--
+    1. if we use form element then no need to call click event in submit button and same time we should metion button type as submit
+    2. #description="ngModel", #ngForm="ngForm" is called form variables and these are angular elements it has a some features
+    3. ngForm.invalid is inbuilt function it return true or false values.
+-->

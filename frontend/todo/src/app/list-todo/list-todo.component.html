@@ -1,10 +1,15 @@
 <div class="container">
-    <h1 >My Todo's</h1>
+    <div style="padding: 3px;"></div>
 
-    <div>
+    <h1 class="h1text">My Todo's</h1>
+    <div class="top-head">
         <!-- *ngIf is a angular directive. it display the error msg only if the value is true. -->
         <div *ngIf="deleteMessage" class="alert alert-success">{{deleteMessage}}</div>
+       <span >
+            <button (click)="addTodo()" class="btn btn-info bewbtn">New Todo</button>
+        </span>
     </div>
+
     <table class="table">
 
         <!--table is a inbuilt class name for standard style-->
@@ -30,10 +35,12 @@
             <tr *ngFor=" let todo of todos">
                 <td>{{todo.description}} </td>
                 <td>{{todo.done}}</td>
-                <td>{{todo.targetDate | date | uppercase}}</td>  <!-- | operator is called as pipe optr. used to convert data one format into another format-->
+                <td>{{todo.targetDate | date | uppercase}}</td>
+                <!-- | operator is called as pipe optr. used to convert data one format into another format-->
                 <td><button (click)="deleteTodo(todo.id)" class="btn btn-danger">Delete</button></td>
-                <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>               
+                <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>
             </tr>
         </tbody>
     </table>
+
 </div>

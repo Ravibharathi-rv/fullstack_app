@@ -23,7 +23,7 @@ export class WelcomeComponent implements OnInit {
 
 
   ngOnInit(): void {
-
+    
     console.log(this.route.snapshot.params['name']);
 
     //  this.route.snapshot.params['name'];   // access the welcome component with parameter(name) value only. 

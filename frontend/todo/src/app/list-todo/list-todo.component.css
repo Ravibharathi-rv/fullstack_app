@@ -1,0 +1,13 @@
+
+.h1text
+{
+    text-align: center;
+}
+
+.top-head{
+    display: inline-block;
+    width: 100%;
+}
+.bewbtn{
+    float: right;
+}
