@@ -14,8 +14,8 @@
 
     <!-- button event syntac => <button (event)=function()>Login</button> 
 handleLogin() function should be defined in login.component.ts--->
-    <button (click)="handleLogin()" class="btn btn-success">login</button>
-
+    <!-- <button (click)="handleLogin()" class="btn btn-success">login</button> -->
+    <button (click)="basicAuthentication()" class="btn btn-success">login</button>
     <!--In the above input element value={{username}} bind the value only one side either from component, or from html to component. 
 to resolve the problem we should use ngModel="username" it can bind the value to the variable for both side. we can pass the vlaue from html and from component
 also -->

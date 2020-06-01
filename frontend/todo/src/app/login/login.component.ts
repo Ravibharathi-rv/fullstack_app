@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { invalid } from '@angular/compiler/src/render3/view/util';
 import { Router } from '@angular/router'; // imported for Router.
 import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
+import { BasicAuthenticationService } from '../service/basic-authentication.service ';
 
 @Component({
   selector: 'app-login',
@@ -13,13 +14,17 @@ export class LoginComponent implements OnInit {
 
   username: string;
   password: string;
-  errorMsg: string = ' Invalid username/password';
+  errorMsg: string = 'Invalid username/password';
   invalidCred: boolean = false;
 
   // dependency injection. route is Router type variable it injected to the login component for Routing, 
   // constructor make this as member variable also.
   // private blocks the route in outside scope
-  constructor(private route: Router, private hardcodedAuthenticationService: HardcodedAuthenticationService) { }
+  constructor(
+    private route: Router, private hardcodedAuthenticationService: HardcodedAuthenticationService,
+    private basicAuthenticationService: BasicAuthenticationService
+        
+    ) { }
 
   ngOnInit(): void {
   }
@@ -37,6 +42,26 @@ export class LoginComponent implements OnInit {
     } else {
       this.invalidCred = true;
     }
+
+  }
+
+  basicAuthentication() { // this function invoked when login button clicked
+    // if(this.username === 'Ravi' && this.password ==='test')
+    console.log('BasiAuthentication method inside');
+    this.basicAuthenticationService.basicAuthenticLogin(this.username, this.password).  // a service used to authenticate the username and password. it return the boolean values
+    subscribe(
+      data => {
+        console.log(data);
+        this.invalidCred = false;
+        console.log('navigating to welcome');
+        this.route.navigate(['welcome', this.username]);
+
+      },
+      error => {
+        console.log(error);
+        this.invalidCred = true;
+      }
+    )
 
   }
 
